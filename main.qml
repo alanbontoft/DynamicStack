@@ -44,8 +44,8 @@ ApplicationWindow {
                 text: qsTr("Page 1")
                 width: parent.width
                 onClicked: {
-                    // stackView.push("Page1Form.ui.qml")
-                    stackView.push(page1)
+                    stackView.push("Page1Form.qml")
+                    // stackView.push(page1)
                     drawer.close()
                 }
             }
@@ -53,7 +53,8 @@ ApplicationWindow {
                 text: qsTr("Page 2")
                 width: parent.width
                 onClicked: {
-                    stackView.push(page2)
+                    stackView.push("Page2Form.qml")
+                    // stackView.push(page2)
                     drawer.close()
                 }
             }
@@ -63,15 +64,27 @@ ApplicationWindow {
                 width: parent.width
                 onClicked: {
                     TheDataList.size = dataSize.text
+                    stackView.push("Page1Form.qml")
                     drawer.close()
                 }
             }
 
-            TextEdit {
-                id: dataSize
+            Rectangle {
                 height: 50
-                width: parent.width
+                width: 100
+                color: "lightblue"
+
+                TextEdit {
+                    id: dataSize
+                    text: "1"
+                    anchors.fill: parent
+                    font.pixelSize: 20
+                    horizontalAlignment: TextEdit.AlignHCenter
+                    verticalAlignment: TextEdit.AlignVCenter
+                }
             }
+
+
 
 
 
@@ -84,7 +97,7 @@ ApplicationWindow {
         initialItem: "HomeForm.ui.qml"
         anchors.fill: parent
     }
-
+/*
     Page1Form {
         id: page1
         visible: false
@@ -93,5 +106,6 @@ ApplicationWindow {
     Page2Form {
         id: page2
         visible: false
-    }
+    }*/
 }
+
